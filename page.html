@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visual Lotto Board – BASIC Tier</title>
+
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+    <header>
+        <h1>Visual Lotto Board – BASIC Tier</h1>
+        <button class="toggle-btn" onclick="toggleCard()">Toggle View</button>
+    </header>
+
+    <div class="card-container" id="cardContainer">
+        <!-- Lotto Classification Chart (LCC) || and BABA IJEBU Games Top 10 Frequently Numbers (GFN) -->
+        <div class="card front">
+            <h2>Lotto Classification Chart</h2>
+            <p>We’re organizing lotto types for better insights. Stay tuned!</p>
+
+            <div class="lcc-data-main-container">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr class="class-name-wrapper">
+                                <th class="class-name">No</th>
+                                <th class="class-name">Counterpart</th>
+                                <th class="class-name">Bonanza</th>
+                                <th class="class-name">Malta</th>
+                                <th class="class-name">Stringkey</th>
+                                <th class="class-name">Shadow</th>
+                                <th class="class-name">Partner</th>
+                                <th class="class-name">Equivalent</th>
+                                <th class="class-name">Code</th>
+                                <th class="class-name">Turning</th>
+                            </tr>        
+                        </thead>
+                        <tbody id="oneToFortyfive">
+
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr class="class-name-wrapper">
+                                <th class="class-name">No</th>
+                                <th class="class-name">Counterpart</th>
+                                <th class="class-name">Bonanza</th>
+                                <th class="class-name">Malta</th>
+                                <th class="class-name">Stringkey</th>
+                                <th class="class-name">Shadow</th>
+                                <th class="class-name">Partner</th>
+                                <th class="class-name">Equivalent</th>
+                                <th class="class-name">Code</th>
+                                <th class="class-name">Turning</th>
+                            </tr>        
+                        </thead>
+                        <tbody id="fortysixToNinety">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card back">
+            <h2>BABA IJEBU Games Top 10 Frequently Numbers</h2>
+            <p>Discover the most drawn numbers in BABA IJEBU games.</p>
+        </div>
+    </div>
+
+    <!-- <button class="toggle-btn" onclick="toggleCard()">Toggle View</button> -->
+
+    <script>
+        const container = document.getElementById('cardContainer');
+        let isFlipped = false;
+
+        function toggleCard() {
+            isFlipped = !isFlipped;
+            container.classList.toggle('flipped', isFlipped);
+        }
+
+        // Auto-swipe every 6 seconds
+        // setInterval(() => {
+        //   toggleCard();
+        // }, 6000);
+    </script>
+    <script src="scripts/classification-data.js"></script>
+
+</body>
+</html>
