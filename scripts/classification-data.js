@@ -5,11 +5,12 @@
 fetch("https://lotto-classification-api.netlify.app/.netlify/functions/classification")
     .then(res => {
         if(!res.ok) throw new Error(`fetch failded: ${res.status}`);
-
         return res.json();
     })
     .then(data => {
         if (!data || !data.one_to_fortyfive) throw new Error("No valid data received");
+
+        console.log("Fetched data: ", data);
 
         const fillTable = (dataset, tbodyId) => {
             const tbody = document.getElementById(tbodyId);
@@ -28,12 +29,13 @@ fetch("https://lotto-classification-api.netlify.app/.netlify/functions/classific
                     <td>${num.turning}</td>
                 `;
 
-                row.appendChild(tbody);
+                tbody.appendChild(row);
             })
-
-            fillTable(data.one_to_fortyfive, "oneTofortyfive");
-            fillTable(data.fortysix_to_ninety, "fortysixToNinety");
         }
+
+        fillTable(data.one_to_fortyfive, "oneTofortyfive");
+        fillTable(data.fortysix_to_ninety, "fortysixToNinety");
+        console.log(fillTable);
     })
     .catch (err => {
         console.error(err);
