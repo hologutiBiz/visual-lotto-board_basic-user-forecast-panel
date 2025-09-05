@@ -10,8 +10,6 @@ window.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             if (!data || !data.one_to_fortyfive) throw new Error("No valid data received");
 
-            console.log("Fetched data: ", data);
-
             const fillTable = (dataset, tbodyId) => {
                 const tbody = document.getElementById(tbodyId);
                 dataset.forEach(num => {
@@ -35,8 +33,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
             fillTable(data.one_to_fortyfive, "oneToFortyfive");
             fillTable(data.fortysix_to_ninety, "fortysixToNinety");
-            console.log(row);
-            console.log(tbody);
         })
         .catch (err => {
             console.error(err);

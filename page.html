@@ -8,65 +8,101 @@
     <link rel="stylesheet" href="page.css">
 </head>
 <body>
-    <header>
+    <!-- <header>
         <h1>Visual Lotto Board – BASIC Tier</h1>
         <button class="toggle-btn" onclick="toggleCard()">Toggle View</button>
-    </header>
+    </header> -->
+    <header>
+        <nav>
+            <div class="brands-wrapper">
+                <a href="/" aria-label="home">
+                    <img src="https://i.postimg.cc/Tw8qBDv6/VLB-logo-removebg-90x91.png" alt="" width="50" style="background-color: #fff; border-radius: 50%;">
+                </a>
+               
+                <span class="brand-name">Visual Lotto Board</span>
+            </div>
+            
 
-    <div class="card-container" id="cardContainer">
-        <!-- Lotto Classification Chart (LCC) || and BABA IJEBU Games Top 10 Frequently Numbers (GFN) -->
-        <div class="card front">
-            <h2>Lotto Classification Chart</h2>
-            <p>We’re organizing lotto types for better insights. Stay tuned!</p>
+            <div class="">
+                <a class="baba-ijebu" href="https://premier-lotto-babaijebu-results.visuallottoboard.com" target="_blank">Check Baba Ijebu results</a>
+            </div>
+            
+            <div class="app-link-wrapper">
+                <a href="https://play.google.com/store/apps/details?id=com.visuallottoboard.lottoclassificationchart">Download mobile app</a>
+            </div>
+        </nav>
 
-            <div class="lcc-data-main-container">
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr class="class-name-wrapper">
-                                <th class="class-name">No</th>
-                                <th class="class-name">Counterpart</th>
-                                <th class="class-name">Bonanza</th>
-                                <th class="class-name">Malta</th>
-                                <th class="class-name">Stringkey</th>
-                                <th class="class-name">Shadow</th>
-                                <th class="class-name">Partner</th>
-                                <th class="class-name">Equivalent</th>
-                                <th class="class-name">Code</th>
-                                <th class="class-name">Turning</th>
-                            </tr>        
-                        </thead>
-                        <tbody id="oneToFortyfive">
+        <button class="toggle-btn" onclick="toggleCard()">Toggle View</button>
 
-                        </tbody>
-                    </table>
-                    <table>
-                        <thead>
-                            <tr class="class-name-wrapper">
-                                <th class="class-name">No</th>
-                                <th class="class-name">Counterpart</th>
-                                <th class="class-name">Bonanza</th>
-                                <th class="class-name">Malta</th>
-                                <th class="class-name">Stringkey</th>
-                                <th class="class-name">Shadow</th>
-                                <th class="class-name">Partner</th>
-                                <th class="class-name">Equivalent</th>
-                                <th class="class-name">Code</th>
-                                <th class="class-name">Turning</th>
-                            </tr>        
-                        </thead>
-                        <tbody id="fortysixToNinety">
-                            
-                        </tbody>
-                    </table>
+   </header>
+
+    <main>
+        <div class="card-container" id="cardContainer">
+            <!-- Lotto Classification Chart (LCC) || and BABA IJEBU Games Top 10 Frequently Numbers (GFN) -->
+            <div class="card front">
+                <h2>Lotto Classification Chart</h2>
+                <p>Functionality of numbers from 1 to 90</p>
+
+                <div class="lcc-data-main-container">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr class="class-name-wrapper">
+                                    <th class="class-name">No</th>
+                                    <th class="class-name">Counterpart</th>
+                                    <th class="class-name">Bonanza</th>
+                                    <th class="class-name">Malta</th>
+                                    <th class="class-name">Stringkey</th>
+                                    <th class="class-name">Shadow</th>
+                                    <th class="class-name">Partner</th>
+                                    <th class="class-name">Equivalent</th>
+                                    <th class="class-name">Code</th>
+                                    <th class="class-name">Turning</th>
+                                </tr>        
+                            </thead>
+                            <tbody id="oneToFortyfive">
+
+                            </tbody>
+                        </table>
+                        <table>
+                            <thead>
+                                <tr class="class-name-wrapper">
+                                    <th class="class-name">No</th>
+                                    <th class="class-name">Counterpart</th>
+                                    <th class="class-name">Bonanza</th>
+                                    <th class="class-name">Malta</th>
+                                    <th class="class-name">Stringkey</th>
+                                    <th class="class-name">Shadow</th>
+                                    <th class="class-name">Partner</th>
+                                    <th class="class-name">Equivalent</th>
+                                    <th class="class-name">Code</th>
+                                    <th class="class-name">Turning</th>
+                                </tr>        
+                            </thead>
+                            <tbody id="fortysixToNinety">
+                                
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+            <div class="card back">
+                <h2>BABA IJEBU Games Top 10 Frequently Numbers</h2>
+                <p>Discover the most drawn numbers in BABA IJEBU games.</p>
+            </div>
         </div>
-        <div class="card back">
-            <h2>BABA IJEBU Games Top 10 Frequently Numbers</h2>
-            <p>Discover the most drawn numbers in BABA IJEBU games.</p>
+    </main>
+
+    <footer>
+        <div>
+            <div class="contact">
+                <a href="https://twitter.com/visuaLottoBoard" target="_blank" class="icon"><i class="fa-brands fa-square-x-twitter"  aria-label="connect 0n our X Page "></i></a>
+                <a href="https://www.facebook.com/visuaLottoBoard" target="_blank" class="icon"><i class="fa-brands fa-facebook"  aria-level="connect on our facebook Page"></i></a>
+                <a href="https://m.me/109930914660224" target="_blank" class="icon"><i class="fa-brands fa-facebook-messenger"  aria-label="connect on Messenger handle to Chat Us"></i></a>
+                <a href="http://www.youtube.com/@VisuaLottoBoard" target="_blank" class="icon"><i class="fa-brands fa-youtube"  aria-label="connect on our YouTube channel, watch live demo of how to navigate our platform"></i></a>
+            </div>
         </div>
-    </div>
+    </footer>
 
     <!-- <button class="toggle-btn" onclick="toggleCard()">Toggle View</button> -->
 

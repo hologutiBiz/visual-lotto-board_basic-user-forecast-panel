@@ -1,52 +1,84 @@
 body {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    /* flex-direction: column; */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
     /* height: 100vh; */
-    align-items: center;
-    justify-content: center;
     margin: 0;
     padding: 0;
+    /* align-items: center;
+    justify-content: center; */
+    
     font-family: 'Segoe UI', sans-serif;
-    /* background: linear-gradient(135deg, #f5f7fa, #c3cfe2);  */
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); 
 }
 
 header {
     display: flex;
+    /* position: sticky !important; */
+    /* top: 0; */
     background-color: #0078d4;
     width: 100%;
 }
+nav {
+   display: flex;
+   background-color: var(--primary-color);
+   justify-content: space-between;
+   align-items: center;
+}
+.brands-wrapper {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+} 
+.brand-name {
+   color: #fff;
+   font-size: 12px;
+   font-weight: 900;
+}
 
+
+.baba-ijebu {
+   color: #f5f5dc;
+   padding: 5px;
+   text-shadow: 1px 1px #444;
+   border-radius: 5px;
+   font-size: 16px;
+}
+.app-link-wrapper a {
+   color: #fff;
+   display: block;
+   text-align: right;
+   margin: 0 20px auto 0;
+}
+
+
+/* MAIN */
 .card-container {
     position: relative;
-    /* width: 90%; */
-    /* max-width: 600px; */
-    /* height: 300px; */
     perspective: 1000px;
 }
 
 .card {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    box-sizing: border-box;
-    backface-visibility: hidden;
-    transition: transform 0.8s ease-in-out;
-      
-    transform-style: preserve-3d;
-
-
     display: flex;
+    position: absolute;
     flex-direction: column;
+    width: 100%;
     justify-content: center;
     align-items: center;
     text-align: center;
-
-    }
-
+    /* height: calc(100% - 200px); */
+    /* background: white; */
+    /* border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px; */
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    transition: transform 0.8s ease-in-out; 
+    transform-style: preserve-3d;
+    
+}
+/* 
 .card h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
@@ -56,7 +88,19 @@ header {
 .card p {
     font-size: 1rem;
     color: #666;
+} */
+
+.card.front {
+    background-image: url("https://i.postimg.cc/prTjQ3w0/Lotto-shot.webp");
 }
+.card.front h2,
+.card.front p {
+    color: #fff;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+} 
+
 
 .card.back {
     transform: rotateY(180deg);
@@ -85,6 +129,9 @@ header {
     cursor: pointer;
 }
 
+/* .lcc-data-main-container {
+    overflow: scroll;
+} */
 .table-wrapper {
    display: flex;
    justify-content: center;
@@ -115,4 +162,10 @@ td {
    padding: 5px;
    text-align: center;
    font-weight: 400;
+}
+
+/* FOOTER */
+.contact a {
+   color: #fff;
+   margin: auto 10px;
 }
