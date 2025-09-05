@@ -33,8 +33,10 @@ window.addEventListener("DOMContentLoaded", () => {
                 });
             };
 
-            fillTable(data.one_to_fortyfive, "oneTofortyfive");
+            fillTable(data.one_to_fortyfive, "oneToFortyfive");
             fillTable(data.fortysix_to_ninety, "fortysixToNinety");
+            console.log(row);
+            console.log(tbody);
         })
         .catch (err => {
             console.error(err);
