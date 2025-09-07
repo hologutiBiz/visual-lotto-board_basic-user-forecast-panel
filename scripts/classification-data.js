@@ -2,7 +2,7 @@
 
 // load chart data
 window.addEventListener("DOMContentLoaded", () => {
-    fetch("https://lotto-classification-api.netlify.app/.netlify/functions/dummy")
+    fetch("https://lotto-classification-api.netlify.app/.netlify/functions/classification")
         .then(res => {
             if(!res.ok) throw new Error(`fetch failded: ${res.status}`);
             return res.json();
