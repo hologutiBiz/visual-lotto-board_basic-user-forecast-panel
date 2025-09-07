@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "lotto-forecast-web-db-e285e",    
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

@@ -146,6 +146,33 @@ td {
    margin: auto 10px;
 }
 
+.game-block {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.game-block h3 {
+  margin: 0;
+  color: #0078d4;
+}
+
+.number-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.frequent-numbers-list .num {
+  background: #0078d4;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
 
 @media screen and (max-width: 610px) {
    body {

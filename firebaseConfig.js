@@ -1,8 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-SERVICE.js'
+import { getAuth } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js'
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js'
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
 
-let firestore;
+let auth, firestore;
 
 export async function initFirebase(appName = "basicUserWebApp") {
     try {
@@ -13,13 +14,18 @@ export async function initFirebase(appName = "basicUserWebApp") {
         if (!firebaseConfig.projectId) throw new Error("Missing project Id");
 
         const app = initializeApp(firebaseConfig);
+        auth = getAuth(app);
         firestore = getFirestore(app);
         const analytics = getAnalytics(app);
 
-        console.log("✅ Firebase initialized with App Check");
+        console.log("✅ Firebase initialized ");
   } catch (error) {
     console.error("🔥 Firebase init failed:", error)
   }
+}
+
+export function firebaseAuth() {
+  return auth;
 }
 
 export function firestoreDB() {
