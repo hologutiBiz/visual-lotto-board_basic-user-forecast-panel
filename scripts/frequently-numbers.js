@@ -2,12 +2,11 @@ import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/12.2.1/f
 import { firestoreDB, initFirebase } from '../firebaseConfig.js'; 
 
 window.addEventListener("DOMContentLoaded", async () => {
-    await initFirebase();
-
-    const db = firestoreDB();
     const container = document.getElementById("frequentNumbersContainer");
 
     try {
+        await initFirebase();
+        const db = firestoreDB();
         const snapshot = await getDocs(collection(db, "frequentNumbers"));
 
         snapshot.forEach(doc => {
