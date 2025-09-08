@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             const gameBlock = document.createElement("div");
             gameBlock.className = "game-block";
             gameBlock.innerHTML = `
-                <h3>${gameName.upperCase()}</h3>
+                <h3>${gameName.toUpperCase()}</h3>
                 <p>Updated: ${new Date(updatedAt).toLocaleDateString()}</p>
 
                 <article class="number-list">

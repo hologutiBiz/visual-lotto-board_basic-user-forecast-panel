@@ -10,7 +10,7 @@ export async function initFirebase(appName = "basicUserWebApp") {
     try {
         const res = await fetch(`https://firebase-config-key.netlify.app/.netlify/functions/htmlProject?app=${appName}`);
         if (!res.ok) throw new Error ("Failed to fetch firebase config");
-console.log("Raw config response:", res);
+
         const firebaseConfig = await res.json();
         if (!firebaseConfig.projectId) throw new Error("Missing project Id");
 
