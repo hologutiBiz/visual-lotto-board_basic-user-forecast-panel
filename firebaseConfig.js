@@ -19,7 +19,7 @@ console.log("Raw config response:", res);
         firestore = getFirestore(app);
         const analytics = getAnalytics(app);
 
-        const appCheck = initializeAppCheck(app, {
+        initializeAppCheck(app, {
           provider: new ReCaptchaEnterpriseProvider("6Lf3PMIrAAAAAF1HCIAGNXi-oeHzyOz697irEW2a"),
           isTokenAutoRefreshEnabled: true
 
