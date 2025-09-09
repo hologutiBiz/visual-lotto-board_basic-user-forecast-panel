@@ -13,17 +13,19 @@ window.addEventListener("DOMContentLoaded", async () => {
             const gameName = doc.id;
             const { topNumbers, updatedAt } = doc.data();
 
-            const gameBlock = document.createElement("div");
+            const gameBlock = document.createElement("section");
             gameBlock.className = "game-block";
+
+            const gameNumbers = topNumbers
+                .map(num => `<span class="num">${num}</span>`)
+                .join(" ");
+
             gameBlock.innerHTML = `
                 <h3>${gameName.toUpperCase()}</h3>
                 <p>Updated: ${new Date(updatedAt).toLocaleDateString()}</p>
 
                 <article class="number-list">
-                    ${topNumbers.map(num => `
-                        <span class="num">${num}</span>).join(" ")
-                        `
-                    )}
+                   ${gameNumbers}
                 </article>
             `;
 
