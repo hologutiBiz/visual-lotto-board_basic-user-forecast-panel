@@ -41,6 +41,11 @@
         </nav>
     </header>
 
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Loading... </p>
+    </div>
+
     <main>
         <div class="main_contents-box">
             <div class="card-container" id="cardContainer">
@@ -99,7 +104,7 @@
                     <p style="margin-top: 15px;"><em>Use your strong BANKER against the game frequently numbers</em></p>
 
                     <div id="frequentNumbersContainer" class="frequent-numbers-list">
-                        <p class="date-updated"></p>
+                        <small class="date-updated"></small>
 
                     </div>
                 </div>
@@ -117,6 +122,7 @@
         }
     </script>
     <script type="module" src="firebaseConfig.js"></script>
+    <script src="utils/loading.js"></script>
     <script src="scripts/classification-data.js"></script>
     <script type="module" src="scripts/frequently-numbers.js"></script>
 

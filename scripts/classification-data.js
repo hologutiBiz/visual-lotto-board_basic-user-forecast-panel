@@ -1,4 +1,6 @@
+// import {  showLoading, hideLoading} from "../utils/loading.js";
 
+showLoading("fgffg");
 
 // load chart data
 window.addEventListener("DOMContentLoaded", () => {
@@ -31,6 +33,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 });
             };
 
+            hideLoading()
+
             fillTable(data.one_to_fortyfive, "oneToFortyfive");
             fillTable(data.fortysix_to_ninety, "fortysixToNinety");
         })
@@ -38,4 +42,7 @@ window.addEventListener("DOMContentLoaded", () => {
             console.error(err);
             }
         )
+        // .finally {
+        //     hideLoading()
+        // }
 });
