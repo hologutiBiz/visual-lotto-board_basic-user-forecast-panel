@@ -154,12 +154,14 @@ td {
    font-weight: 400;
 }
 
-/* FOOTER */
 .contact a {
    color: #fff;
    margin: auto 10px;
 }
 
+.frequent-numbers-list {
+   padding-bottom: 2rem;
+}
 .game-block {
   margin-bottom: 20px;
   padding: 10px;

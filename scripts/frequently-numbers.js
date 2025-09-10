@@ -9,21 +9,35 @@ window.addEventListener("DOMContentLoaded", async () => {
         const db = firestoreDB();
         const snapshot = await getDocs(collection(db, "frequentNumbers"));
 
+        const prefferedOrder = ["diamond", "peoples", "bingo", "metro", "international", "gold", "06", "jackpot", 
+            "club master", "super", "tota", "mark-ii", "vag", "enugu", "lucky", "fairchance", "royal", 
+            "monday special", "lucky-g", "midweek", "fortune", "bonanza", "premier king", "national", "aseda"
+        ];
+        const gameMap = {};
+
         snapshot.forEach(doc => {
             const gameName = doc.id;
             const { topNumbers, updatedAt } = doc.data();
+            gameMap[gameName] = {topNumbers, updatedAt};
+        });
+
+        prefferedOrder.forEach(gameName => {
+            const data = gameMap[gameName];
+            if (!data) return;
 
             const gameBlock = document.createElement("section");
             gameBlock.className = "game-block";
 
-            const gameNumbers = topNumbers
+            const dateUpdate = document.querySelector(".frequent-numbers-list .date-updated");
+            dateUpdate.textContent = `Last updated: ${new Date(data.updatedAt).toLocaleDateString()}`
+
+            const gameNumbers = data.topNumbers
                 .map(num => `<span class="num">${num}</span>`)
                 .join(" ");
 
             gameBlock.innerHTML = `
                 <h3>${gameName.toUpperCase()}</h3>
-                <p>Updated: ${new Date(updatedAt).toLocaleDateString()}</p>
-
+            
                 <article class="number-list">
                    ${gameNumbers}
                 </article>
