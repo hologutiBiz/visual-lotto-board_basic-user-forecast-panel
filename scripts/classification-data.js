@@ -1,10 +1,9 @@
-// import {  showLoading, hideLoading} from "../utils/loading.js";
 
-showLoading("fgffg");
+showLoading("Loading...");
 
 // load chart data
 window.addEventListener("DOMContentLoaded", () => {
-    fetch("https://lotto-classification-api.netlify.app/.netlify/functions/dummy")
+    fetch("https://lotto-classification-api.netlify.app/.netlify/functions/classification")
         .then(res => {
             if(!res.ok) throw new Error(`fetch failded: ${res.status}`);
             return res.json();
@@ -33,12 +32,13 @@ window.addEventListener("DOMContentLoaded", () => {
                 });
             };
 
-            hideLoading()
+            hideLoading();
 
             fillTable(data.one_to_fortyfive, "oneToFortyfive");
             fillTable(data.fortysix_to_ninety, "fortysixToNinety");
         })
         .catch (err => {
+            hideLoading();
             console.error(err);
             }
         )

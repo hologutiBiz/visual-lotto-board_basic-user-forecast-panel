@@ -21,10 +21,6 @@ window.addEventListener("DOMContentLoaded", async () => {
             gameMap[gameName] = {topNumbers, updatedAt};
         });
 
-        // After snapshot.forEach and rendering
-loading.style.display = "none";
-
-
         prefferedOrder.forEach(gameName => {
             const data = gameMap[gameName];
             if (!data) return;
@@ -51,5 +47,7 @@ loading.style.display = "none";
         })
     } catch (err) {
         console.error("🔥 Failed to fetch frequent numbers:", err);
+    } finally {
+        
     }
 });
