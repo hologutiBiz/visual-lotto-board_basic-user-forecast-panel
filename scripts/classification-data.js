@@ -1,10 +1,10 @@
-import { showLoading, hideLoading } from '../utils/loading.js';
+// import { showLoading, hideLoading } from '../utils/loading.js';
 
 export async function fetchClassificationChart() {
     showLoading("Loading...");
 
     try {
-        const res = await fetch("https://lotto-classification-api.netlify.app/.netlify/functions/dummy")
+        const res = await fetch("https://lotto-classification-api.netlify.app/.netlify/functions/classification")
         if(!res.ok) throw new Error(`fetch failded: ${res.status}`);
             
         const data = await res.json();
@@ -34,7 +34,7 @@ export async function fetchClassificationChart() {
         fillTable(data.one_to_fortyfive, "oneToFortyfive");
         fillTable(data.fortysix_to_ninety, "fortysixToNinety");
     
-    } catch (error) {
+    } catch (err) {
         console.error("🔥 Classification fetch failed:", err);
     } finally {
         hideLoading();
