@@ -1,5 +1,3 @@
-// import { showLoading, hideLoading } from '../utils/loading.js';
-
 export async function fetchClassificationChart() {
     showLoading("Loading...");
 

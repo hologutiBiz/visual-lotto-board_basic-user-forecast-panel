@@ -56,7 +56,13 @@ export async function fetchFrequentNumbers() {
             container.appendChild(gameBlock);
         })
     } catch (err) {
-        console.error("🔥 Failed to fetch frequent numbers:", err);
+        if (err.message.includes("Failed to fetch firebase config")) {
+            showErrorMessage("Server Error: Store configuration failed.");
+        } else if (err.message.includes("CORS")) {
+            showErrorMessage("Failed to fetch data. CORS Policy restriction.")
+        } else {
+            console.error("🔥 Failed to fetch frequent numbers:", err);
+        } 
     } finally {
         loadingMessage.style.display = "none";
     }
