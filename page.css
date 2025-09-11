@@ -196,8 +196,8 @@ td {
 
 .loading-message {
   font-style: italic;
-  color: #ff0000;
-  margin-bottom: 10px;
+  color: #9c0707;
+  margin: 5rem auto 10px;
 }
 
 .game-block {
