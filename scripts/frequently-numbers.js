@@ -1,13 +1,23 @@
 import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js';
 import { firestoreDB, initFirebase } from '../firebaseConfig.js'; 
 
-window.addEventListener("DOMContentLoaded", async () => {
+const loadingMessage = document.querySelector(".frequent-numbers-list .loading-message");
+
+export async function fetchFrequentNumbers() {
+    loadingMessage.style.display = "block";
+
     const container = document.getElementById("frequentNumbersContainer");
+    const dateUpdate = document.querySelector(".frequent-numbers-list .date-updated");
 
     try {
         await initFirebase();
         const db = firestoreDB();
         const snapshot = await getDocs(collection(db, "frequentNumbers"));
+
+        if (!container) {
+            console.warn("⚠️ frequentNumbersContainer not found in DOM");
+            return;
+        }
 
         const prefferedOrder = ["diamond", "peoples", "bingo", "metro", "international", "gold", "06", "jackpot", 
             "club master", "super", "tota", "mark-ii", "vag", "enugu", "lucky", "fairchance", "royal", 
@@ -28,9 +38,9 @@ window.addEventListener("DOMContentLoaded", async () => {
             const gameBlock = document.createElement("section");
             gameBlock.className = "game-block";
 
-            const dateUpdate = document.querySelector(".frequent-numbers-list .date-updated");
-            dateUpdate.textContent = `Last updated: ${new Date(data.updatedAt).toLocaleDateString()}`
-
+            if (dateUpdate) {
+                dateUpdate.textContent = `Last updated: ${new Date(data.updatedAt).toLocaleDateString()}`
+            }
             const gameNumbers = data.topNumbers
                 .map(num => `<span class="num">${num}</span>`)
                 .join(" ");
@@ -48,6 +58,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     } catch (err) {
         console.error("🔥 Failed to fetch frequent numbers:", err);
     } finally {
-        
+        loadingMessage.style.display = "none";
     }
-});
+}

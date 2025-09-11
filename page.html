@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visual Lotto Board – BASIC Tier</title>
+    <title>BASIC User Page | Visual Lotto Board</title>
+    <meta description="" content="">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="page.css">
@@ -97,9 +98,10 @@
                     <h2>BABA IJEBU Games Top 10 Frequently Numbers</h2>
                     <p>Discover the most drawn numbers in BABA IJEBU games.</p>
                     
-                    <p style="margin-top: 15px;"><em>Use your strong BANKER against the game frequently numbers</em></p>
+                    <p style="margin-top: 15px; text-align: justify;"><em>Use your strong <b>BANKER</b> against the game frequently numbers</em></p>
 
                     <div id="frequentNumbersContainer" class="frequent-numbers-list">
+                        <p class="loading-message">Fetching frequent numbers</p>
                         <small class="date-updated"></small>
                     </div>
                 </div>
@@ -118,8 +120,6 @@
     </script>
     <script type="module" src="firebaseConfig.js"></script>
     <script src="utils/loading.js"></script>
-    <script src="scripts/classification-data.js"></script>
-    <script type="module" src="scripts/frequently-numbers.js"></script>
-
+    <script type="module" src="scripts/page-data.js"></script>
 </body>
 </html>
