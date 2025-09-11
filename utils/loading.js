@@ -1,4 +1,4 @@
-window.showLoading = function (message = "Loading") {
+export function showLoading(message = "Loading") {
     const overlay = document.getElementById("loading-overlay");
     if (!overlay) return;
 
@@ -6,7 +6,7 @@ window.showLoading = function (message = "Loading") {
     overlay.style.display = "flex";
 }
 
-window.hideLoading = function () {
+export function hideLoading() {
     const overlay = document.getElementById("loading-overlay");
     if (!overlay) return;
 
