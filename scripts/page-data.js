@@ -7,10 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 window.addEventListener("offline", () => {
-    showErrorMessage("You are offline");
+    showErrorMessage("You are offline. Connection your internet, and wait for page to refresh.");
 });
 
 window.addEventListener("online", () => {
     let errorPara = document.getElementById("error-message");
     errorPara.style.display = "none";
+    window.location.reload();
 });

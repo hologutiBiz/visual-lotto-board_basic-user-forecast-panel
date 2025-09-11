@@ -57,9 +57,9 @@ export async function fetchFrequentNumbers() {
         })
     } catch (err) {
         if (err.message.includes("Failed to fetch firebase config")) {
-            showErrorMessage("Server Error: Store configuration failed.");
+            showErrorMessage("Server Error: Store configuration failed. Please try again later");
         } else if (err.message.includes("CORS")) {
-            showErrorMessage("Failed to fetch data. CORS Policy restriction.")
+            showErrorMessage("Failed to fetch data. CORS Policy restriction. Please try again later")
         } else {
             console.error("🔥 Failed to fetch frequent numbers:", err);
         } 
