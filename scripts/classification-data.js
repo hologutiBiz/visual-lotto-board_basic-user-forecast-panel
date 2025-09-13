@@ -34,6 +34,23 @@ export async function fetchClassificationChart() {
     
     } catch (err) {
         console.error("🔥 Classification fetch failed:", err);
+
+        const chartError = document.querySelector(".chart-error");
+        const chartContainer = document.querySelector(".lcc-data-container");
+
+        if (chartError && chartContainer) {
+            chartContainer.style.display = "none";
+
+            if (err.message.includes("CORS")) {
+                chartError.textContent = "Server Error: Failed to load Chart data due to Restriction policy";
+            } else if (err.message.includes("403")) {
+                chartError.textContent = "Access denied. Please log in to continue.";
+            } else {
+                chartError.textContent = "Failed to load classification chart. Please try again later.";
+            }
+
+            chartError.style.display = "block";
+        }
     } finally {
         hideLoading();
   }

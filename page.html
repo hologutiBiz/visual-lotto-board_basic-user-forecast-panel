@@ -47,15 +47,16 @@
     </div>
     
 
-    <main>
+    <main id="main-el">
         <div class="main_contents-box">
             <div class="card-container" id="cardContainer">
             <!-- Lotto Classification Chart (LCC) || and BABA IJEBU Games Top 10 Frequently Numbers (GFN) -->
                 <div class="card front">
                     <h2>Lotto Classification Chart</h2>
                 <!-- <p>Functionality of numbers from 1 to 90</p> -->
+                    <p class="chart-error" style="display: none; color: red;"></p>
 
-                    <div class="lcc-data-main-container">
+                    <div class="lcc-data-container">
                         <div class="table-wrapper">
                             <table>
                                 <thead>
@@ -104,12 +105,13 @@
                     
                     <p style="margin-top: 15px; text-align: justify;"><em>Use your strong <b>BANKER</b> against the game frequently numbers</em></p>
 
+                    <p class="fn-data-status">Fetching frequent numbers. Please wait...</p>
+
                     <div id="frequentNumbersContainer" class="frequent-numbers-list">
-                        <p class="loading-message">Fetching frequent numbers...</p>
                         <small class="date-updated"></small>
                     </div>
                 </div>
-        </div>
+            </div>
         </div>
     </main>
 

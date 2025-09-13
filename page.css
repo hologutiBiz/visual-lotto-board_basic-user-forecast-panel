@@ -158,6 +158,10 @@ main {
     transform: rotateY(0deg);
 }
 
+.lcc-data-container {
+   width: 100%;
+   height: 100%;
+}
 .table-wrapper {
    display: flex;
    justify-content: center;
@@ -190,15 +194,15 @@ td {
    font-weight: 400;
 }
 
+.fn-data-status {
+   color: #e20b0b;
+   margin: 5rem auto 10px;
+   font-style: italic;
+   font-weight: 400;
+   font-size: 0.9rem;
+}
 .frequent-numbers-list {
    padding-bottom: 5rem;
-}
-
-.loading-message {
-  font-style: italic;
-  color: #9c0707;
-  margin: 5rem auto 10px;
-  font-size: 1.5rem;
 }
 
 .error-message {

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 window.addEventListener("offline", () => {
-    showErrorMessage("You are offline. Connection your internet, and wait for page to refresh.");
+    showErrorMessage("No internet connection. Please check your network.");
 });
 
 window.addEventListener("online", () => {

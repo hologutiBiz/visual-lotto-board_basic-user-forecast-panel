@@ -1,10 +1,10 @@
 window.showErrorMessage = function(message) {
-    let mainElement = document.querySelector("main");
-    let errorPara = document.getElementById("error-message");
+    const mainElement = document.getElementById("main-el");
+    const generalError = document.getElementById("error-message");
 
-    if (errorPara) {
+    if (mainElement && generalError) {
         mainElement.style.display = "none";
-        errorPara.textContent = message;
-        errorPara.style.display = "block";
+        generalError.textContent = message;
+        generalError.style.display = "block";
     }
 } 
