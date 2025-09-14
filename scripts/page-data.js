@@ -1,9 +1,9 @@
 import { fetchFrequentNumbers } from "./frequently-numbers.js";
 import { fetchClassificationChart } from "./classification-data.js"; 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const main = document.querySelector("#main-el");
+const main = document.querySelector("#main-el");
 
+document.addEventListener("DOMContentLoaded", () => {
     fetchFrequentNumbers();
     fetchClassificationChart();
 })
@@ -16,7 +16,7 @@ window.addEventListener("online", () => {
     let errorPara = document.getElementById("error-message");
     errorPara.style.display = "none";
     // window.location.reload();
-    main.style.display = "block"
+    main.style.display = "block";
 });
 
 window.addEventListener("firebaseInitFailed", (e) => {
