@@ -200,6 +200,7 @@ td {
 }
 
 .fn-data-status {
+   display: none;
    color: #e20b0b;
    margin: 5rem auto 10px;
    font-style: italic;
