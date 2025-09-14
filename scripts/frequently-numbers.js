@@ -61,9 +61,7 @@ export async function fetchFrequentNumbers() {
         console.error("🔥 Failed to fetch frequent numbers:", err);
 
         if (dataStatus) {
-            if (err.message.includes("Failed to fetch firebase config")) {
-                dataStatus.textContent = "Server Error: Store configuration failed. Please try again later";
-            } else if (err.message.includes("Failed to fetch") || err instanceof TypeError) {
+            if (err.message.includes("Failed to fetch") || err instanceof TypeError) {
                 dataStatus.textContent = "Network error: Connection was closed or unreachable.";
             } else {
                 dataStatus.textContent = "Unable to load frequent numbers. Please try again.";

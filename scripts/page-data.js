@@ -15,3 +15,8 @@ window.addEventListener("online", () => {
     errorPara.style.display = "none";
     window.location.reload();
 });
+
+window.addEventListener("firebaseInitFailed", (e) => {
+    console.error("🔥 Firebase init failed:", e.detail.message);
+    showErrorMessage("Server Error: Store configuration failed. Please try again later.");
+})

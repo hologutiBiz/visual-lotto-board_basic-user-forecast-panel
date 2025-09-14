@@ -26,10 +26,14 @@ export async function initFirebase(appName = "basicUserWebApp") {
         });
 
         console.log("✅ Firebase initialized ");
-  } catch (error) {
-     console.error("🔥 Firebase init failed:", error)
-    throw error;
-  }
+    } catch (error) {
+        console.error("🔥 Firebase init failed:", error)
+        const event = new CustomEvent("firebaseInitFailed", {
+          detail: { message: error.message }
+        });
+        window.dispatchEvent(event);
+        throw error;
+    }
 }
 
 export function firebaseAuth() {
