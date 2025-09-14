@@ -1,14 +1,16 @@
 import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js';
 import { firestoreDB, initFirebase } from '../firebaseConfig.js'; 
 
+ const container = document.getElementById("frequentNumbersContainer");
 const dataStatus = document.querySelector(".frequent-numbers-list .fn-data-status");
+const dateUpdate = document.querySelector(".frequent-numbers-list .date-updated");
+
+if (dataStatus) {
+    dataStatus.textContent = "Fetching frequent numbers. Please wait...";
+    dataStatus.style.display = "block";
+}
 
 export async function fetchFrequentNumbers() {
-    // loadingMessage.style.display = "block";
-
-    const container = document.getElementById("frequentNumbersContainer");
-    const dateUpdate = document.querySelector(".frequent-numbers-list .date-updated");
-
     try {
         await initFirebase();
         const db = firestoreDB();
