@@ -1,17 +1,17 @@
 import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js';
 import { firestoreDB, initFirebase } from '../firebaseConfig.js'; 
 
- const container = document.getElementById("frequentNumbersContainer");
-const dataStatus = document.querySelector(".frequent-numbers-list .fn-data-status");
-const dateUpdate = document.querySelector(".frequent-numbers-list .date-updated");
-
-if (dataStatus) {
-    dataStatus.textContent = "Fetching frequent numbers. Please wait...";
-    dataStatus.style.display = "block";
-}
-
 export async function fetchFrequentNumbers() {
+    const container = document.getElementById("frequentNumbersContainer");
+    const dataStatus = document.querySelector(".frequent-numbers-list .fn-data-status");
+    const dateUpdate = document.querySelector(".frequent-numbers-list .date-updated");
+    
     try {
+        if (dataStatus) {
+            dataStatus.textContent = "Fetching frequent numbers. Please wait...";
+            dataStatus.style.display = "block";
+        }
+        
         await initFirebase();
         const db = firestoreDB();
         const snapshot = await getDocs(collection(db, "frequentNumbers"));
@@ -20,6 +20,8 @@ export async function fetchFrequentNumbers() {
             console.warn("⚠️ frequentNumbersContainer not found in DOM");
             return;
         }
+
+        dataStatus.style.display = "none";
 
         const gameOrder = ["diamond", "peoples", "bingo", "metro", "international", "gold", "06", "jackpot", 
             "club master", "super", "tota", "mark-ii", "vag", "enugu", "lucky", "fairchance", "royal", 
@@ -56,6 +58,7 @@ export async function fetchFrequentNumbers() {
             `;
 
             container.appendChild(gameBlock);
+
         })
     } catch (err) {
         console.error("🔥 Failed to fetch frequent numbers:", err);
@@ -69,7 +72,6 @@ export async function fetchFrequentNumbers() {
         
             dataStatus.style.display = "block";
         }
-        
     } finally {
         if (dataStatus && !container.hasChildNodes()) {
             // No data rendered, likely due to error — keep message visible
