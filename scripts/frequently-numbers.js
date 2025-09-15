@@ -3,7 +3,7 @@ import { firestoreDB, initFirebase } from '../firebaseConfig.js';
 
 export async function fetchFrequentNumbers() {
     const container = document.getElementById("frequentNumbersContainer");
-    const dataStatus = document.querySelector(".frequent-numbers-list .fn-data-status");
+    const dataStatus = document.querySelector(".fn-data-status");
     const dateUpdate = document.querySelector(".frequent-numbers-list .date-updated");
     
     try {
