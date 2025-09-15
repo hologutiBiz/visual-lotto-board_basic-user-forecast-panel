@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const user = userCredential.user;
 
             const userRef = doc(firestoreDB(), "users", user.uid);
-            const userSnap = getDoc(userRef);
+            const userSnap = await getDoc(userRef);
 
             if (!userSnap.exists()) {
                 loginError.textContent = "User not found";
