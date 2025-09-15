@@ -18,18 +18,18 @@ document.addEventListener("DOMContentLoaded", async () => {
             const user = userCredential.user;
 
             const userRef = doc(firestoreDB(), "users", user.uid);
-            const snapShot = getDoc(userRef);
+            const userSnap = getDoc(userRef);
 
-            if (!snapShot.exists()) {
+            if (!userSnap.exists()) {
                 loginError.textContent = "User not found";
                 throw new Error("User not found");
             }
 
-            const role = snapShot.data().role;
+            const role = userSnap.data().role;
             if (role === "free") {
-            loginError.textContent = 'Access denied. Upgrade your account "Basic" or "Pro" to continue.';
-            loginError.style.display = "block";
-            return;
+                loginError.textContent = 'Access denied. Upgrade your account "Basic" or "Pro" to continue.';
+                loginError.style.display = "block";
+                return;
             }
 
             loginError.style.display = "none";
