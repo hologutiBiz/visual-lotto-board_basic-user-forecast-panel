@@ -22,7 +22,6 @@ export async function initFirebase(appName = "basicUserWebApp") {
         initializeAppCheck(app, {
           provider: new ReCaptchaEnterpriseProvider("6Lf3PMIrAAAAAF1HCIAGNXi-oeHzyOz697irEW2a"),
           isTokenAutoRefreshEnabled: true
-
         });
 
         console.log("✅ Firebase initialized ");
@@ -36,7 +35,7 @@ export async function initFirebase(appName = "basicUserWebApp") {
     }
 }
 
-export function firebaseAuth() {
+export function Auth() {
   return auth;
 }
 

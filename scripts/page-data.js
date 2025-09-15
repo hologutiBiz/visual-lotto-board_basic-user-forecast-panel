@@ -15,7 +15,6 @@ window.addEventListener("offline", () => {
 window.addEventListener("online", () => {
     let errorPara = document.getElementById("error-message");
     errorPara.style.display = "none";
-    // window.location.reload();
     main.style.display = "block";
 });
 
