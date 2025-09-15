@@ -1,11 +1,19 @@
+import { Auth } from "../firebaseConfig.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 import { fetchFrequentNumbers } from "./frequently-numbers.js";
 import { fetchClassificationChart } from "./classification-data.js"; 
 
 const main = document.querySelector("#main-el");
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetchFrequentNumbers();
-    fetchClassificationChart();
+    onAuthStateChanged(Auth(), (user) => {
+        if (!user) {
+            window.location.href = "index.html";
+        }
+
+        fetchFrequentNumbers();
+        fetchClassificationChart();
+    })
 })
 
 window.addEventListener("offline", () => {

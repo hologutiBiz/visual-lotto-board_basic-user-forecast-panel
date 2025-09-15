@@ -1,7 +1,8 @@
 import { initFirebase, firestoreDB,  Auth } from "../firebaseConfig.js";
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+const loginBtn = document.querySelector("#loginForm button");
 
 document.addEventListener("DOMContentLoaded", async () => {
     await initFirebase();
@@ -14,6 +15,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         const loginError = document.getElementById("loginError");
 
         try {
+            loginBtn.disabled = true;
+            loginBtn.textContent = "Authenticating...";
+
             const userCredential = await signInWithEmailAndPassword(Auth(), email, password);
             const user = userCredential.user;
 
@@ -41,6 +45,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ? "Invalid email or password"
                 : err.message;
             loginError.style.display = "block";
+        } finally {
+            loginBtn.disabled = false;
+            loginBtn.textContent = "Login";
         }
     });
 });
