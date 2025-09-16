@@ -36,7 +36,6 @@ export async function initFirebase(appName = "basicUserWebApp") {
 }
 
 export function Auth() {
-  if (!auth) throw new Error("Auth not initialized. Call initFirebase() first.");
   return auth;
 }
 
