@@ -16,12 +16,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return;
             }
 
-            const userRef = doc(firestoreDB(), "users", user.uid());
+            const userRef = doc(firestoreDB(), "users", user.uid);
             const userSnap = await getDoc(userRef);
 
             if (!userSnap.exists()) {
                 await signOut(Auth());
-                window.location.href = "https://app.visuallottoboard.com/sign-up";
+                window.location.href = "https://app.visuallottoboard.com/signup";
                 return;
             }
 
