@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         await initFirebase();
 
-        onAuthStateChanged(Auth(), (user) => {
+        onAuthStateChanged(Auth(), async (user) => {
             if (!user) {
                 window.location.href = "index.html";
                 return;

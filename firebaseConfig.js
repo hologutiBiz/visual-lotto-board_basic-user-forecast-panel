@@ -4,9 +4,12 @@ import { getFirestore } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
 import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app-check.js";
 
+let initialized = false;
 let auth, firestore;
 
 export async function initFirebase(appName = "basicUserWebApp") {
+    if (initialized) return;
+
     try {
         const res = await fetch(`https://firebase-config-key.netlify.app/.netlify/functions/htmlProject?app=${appName}`);
         if (!res.ok) throw new Error ("Failed to fetch firebase config");
@@ -24,6 +27,7 @@ export async function initFirebase(appName = "basicUserWebApp") {
           isTokenAutoRefreshEnabled: true
         });
 
+        initialized = true;
         console.log("✅ Firebase initialized ");
     } catch (error) {
         console.error("🔥 Firebase init failed:", error)
