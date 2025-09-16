@@ -1,19 +1,27 @@
-import { Auth } from "../firebaseConfig.js";
+import { initFirebase, Auth } from "../firebaseConfig.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 import { fetchFrequentNumbers } from "./frequently-numbers.js";
 import { fetchClassificationChart } from "./classification-data.js"; 
 
 const main = document.querySelector("#main-el");
 
-document.addEventListener("DOMContentLoaded", () => {
-    onAuthStateChanged(Auth(), (user) => {
-        if (!user) {
-            window.location.href = "index.html";
-        }
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        await initFirebase();
 
-        fetchFrequentNumbers();
-        fetchClassificationChart();
-    })
+        onAuthStateChanged(Auth(), (user) => {
+            if (!user) {
+                window.location.href = "index.html";
+                return;
+            }
+
+            fetchFrequentNumbers();
+            fetchClassificationChart();
+        });
+    } catch (err) {
+        console.error("🔥 Firebase init failed:", err.message);
+        showErrorMessage("Server Error: Store configuration failed. Please try again later.")
+    }
 })
 
 window.addEventListener("offline", () => {
